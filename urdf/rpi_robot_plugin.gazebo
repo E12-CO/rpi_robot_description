@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<robot>
+
+  <!-- gazebo_mecanum plugin -->
+  <gazebo>
+    <plugin name="rpi_robot_diff_drive" filename="libgazebo_mecanum_drive.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <LeftRear>wheel_joint_1</LeftRear>
+      <LeftFront>wheel_joint_2</LeftFront>
+      <RightFront>wheel_joint_3</RightFront>
+      <RightRear>wheel_joint_4</RightRear>
+      <odometryRate>30</odometryRate>      
+      <publishWheelTF>false</publishWheelTF>
+      <publishOdomTF>true</publishOdomTF>
+      <WheelTorque>30</WheelTorque>
+      <WheelSeparationW>0.5</WheelSeparationW>
+      <WheelSeparationL>0.6</WheelSeparationL>
+      <wheelAccel>10</wheelAccel>
+      <wheelDiameter>0.13</wheelDiameter>
+      <publishOdom>true</publishOdom>
+      <isRollerModel>true</isRollerModel>
+    </plugin>
+  </gazebo>
+
+  <!-- gazebo joint_state_publisher -->
+  <gazebo>
+    <plugin name="rpi_robot_joint_state" filename="libgazebo_ros_joint_state_publisher.so">
+      <ros>
+        <remapping>joint_states:=joint_states</remapping>
+      </ros>
+      <update_rate>30</update_rate>
+      <joint_name>wheel_joint_1</joint_name>
+      <joint_name>wheel_joint_2</joint_name>
+      <joint_name>wheel_joint_3</joint_name>
+      <joint_name>wheel_joint_4</joint_name>
+      <joint_name>roller_1_1_joint</joint_name>
+      <joint_name>roller_1_2_joint</joint_name>
+      <joint_name>roller_1_3_joint</joint_name>
+      <joint_name>roller_1_4_joint</joint_name>
+      <joint_name>roller_1_5_joint</joint_name>
+      <joint_name>roller_1_6_joint</joint_name>
+      <joint_name>roller_1_7_joint</joint_name>
+      <joint_name>roller_1_8_joint</joint_name>
+      <joint_name>roller_1_9_joint</joint_name>
+      <joint_name>roller_2_1_joint</joint_name>
+      <joint_name>roller_2_2_joint</joint_name>
+      <joint_name>roller_2_3_joint</joint_name>
+      <joint_name>roller_2_4_joint</joint_name>
+      <joint_name>roller_2_5_joint</joint_name>
+      <joint_name>roller_2_6_joint</joint_name>
+      <joint_name>roller_2_7_joint</joint_name>
+      <joint_name>roller_2_8_joint</joint_name>
+      <joint_name>roller_2_9_joint</joint_name>
+      <joint_name>roller_3_1_joint</joint_name>
+      <joint_name>roller_3_2_joint</joint_name>
+      <joint_name>roller_3_3_joint</joint_name>
+      <joint_name>roller_3_4_joint</joint_name>
+      <joint_name>roller_3_5_joint</joint_name>
+      <joint_name>roller_3_6_joint</joint_name>
+      <joint_name>roller_3_7_joint</joint_name>
+      <joint_name>roller_3_8_joint</joint_name>
+      <joint_name>roller_3_9_joint</joint_name>
+      <joint_name>roller_4_1_joint</joint_name>
+      <joint_name>roller_4_2_joint</joint_name>
+      <joint_name>roller_4_3_joint</joint_name>
+      <joint_name>roller_4_4_joint</joint_name>
+      <joint_name>roller_4_5_joint</joint_name>
+      <joint_name>roller_4_6_joint</joint_name>
+      <joint_name>roller_4_7_joint</joint_name>
+      <joint_name>roller_4_8_joint</joint_name>
+      <joint_name>roller_4_9_joint</joint_name>
+    </plugin>
+  </gazebo> 
+
+  <!-- base_link -->
+  <gazebo reference="base_link">
+    <selfCollide>false</selfCollide>
+    <gravity>true</gravity>
+    <mu1>10</mu1>
+    <mu2>10</mu2>
+    <kp>1e30</kp>
+    <kd>1e20</kd>
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+</robot>
